@@ -1,6 +1,7 @@
 # coding: utf-8
 
 import configparser
+from firebase import incluirTemperatura
 
 pi = False
 
@@ -28,7 +29,9 @@ def retornaTemperatura():
     return temperatura
 
 def main():
-    pass
+    temperatura = retornaTemperatura()
+    temperatura = retornaTemperatura()
+    incluirTemperatura(temperatura)
 
 if __name__ == '__main__':
     main()
