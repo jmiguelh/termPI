@@ -1,6 +1,7 @@
 # coding: utf-8
 
 import configparser
+from firebase import incluirTemperatura
 
 pi = False
 
@@ -17,7 +18,7 @@ def lerConfig():
     return arquivo
 
 
-def main():
+def retornaTemperatura():
     file = lerConfig()
     arquivo = open(file, 'r')
     for linha in arquivo:
@@ -25,8 +26,12 @@ def main():
         if posicao > 0:
             temperatura = int(linha[posicao+2:])/1000
     arquivo.close()
-    print(temperatura)
+    return temperatura
 
+def main():
+    temperatura = retornaTemperatura()
+    temperatura = retornaTemperatura()
+    incluirTemperatura(temperatura)
 
 if __name__ == '__main__':
     main()

@@ -1,2 +1,3 @@
 # termPI
-Aplicação para ler a temperatura através da Raspberrypi
+
+Aplicação para ler a temperatura através da Raspberrypi.
