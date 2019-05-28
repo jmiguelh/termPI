@@ -17,7 +17,7 @@ def lerConfig():
     return arquivo
 
 
-def main():
+def retornaTemperatura():
     file = lerConfig()
     arquivo = open(file, 'r')
     for linha in arquivo:
@@ -25,8 +25,10 @@ def main():
         if posicao > 0:
             temperatura = int(linha[posicao+2:])/1000
     arquivo.close()
-    print(temperatura)
+    return temperatura
 
+def main():
+    pass
 
 if __name__ == '__main__':
     main()
