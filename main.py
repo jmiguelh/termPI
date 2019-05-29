@@ -3,10 +3,12 @@
 import configparser
 from firebase import incluirTemperatura
 
+pi = False
+
+
 def lerConfig():
     config = configparser.ConfigParser()
     config.read_file(open('config.ini'))
-    pi = config['PI']['pi']
     if pi:
         arquivo = config['PI']['path']
     else:
@@ -30,7 +32,10 @@ def retornaTemperatura():
 def main():
     temperatura = retornaTemperatura()
     temperatura = retornaTemperatura()
-    incluirTemperatura(temperatura)
+    if pi:
+        incluirTemperatura(temperatura)
+    else:
+        print(temperatura)
 
 
 if __name__ == '__main__':
