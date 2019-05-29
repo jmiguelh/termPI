@@ -34,6 +34,10 @@ def incluirTemperatura(temperatura):
 
 def buscarTemperaturaAtual():
     db = conectarFirebase()
-    result = db.collection(u"temp").order_by(
-        u"datahora", direction=firestore.Query.DESCENDING).limit(1).get()
-    return result
+  
+    temperaturas = db.collection(u'temp')
+    query = temperaturas.order_by(
+        u'datahora', direction=firestore.Query.DESCENDING).limit(1)
+    results = query.get()
+    
+    return results
