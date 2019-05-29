@@ -6,12 +6,16 @@ from firebase_admin import firestore
 import datetime
 
 
-def incluirTemperatura(temperatura):
+def conectarFirebase():
     cred = credentials.Certificate(
         'termpi-firebase-adminsdk-mfrvk-b95cdce7ef.json')
     firebase_admin.initialize_app(cred)
+    return firestore.client()
 
-    db = firestore.client()
+
+def incluirTemperatura(temperatura):
+
+    db = conectarFirebase()
     now = datetime.datetime.now()
 
     data = {
@@ -26,3 +30,10 @@ def incluirTemperatura(temperatura):
 
     db.collection(u'temp').document().set(data)
     return 0
+
+
+def buscarTemperaturaAtual():
+    db = conectarFirebase()
+    result = db.collection(u"temp").order_by(
+        u"datahora", direction=firestore.Query.DESCENDING).limit(1).get()
+    return result
