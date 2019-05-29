@@ -1,17 +1,18 @@
 # coding: utf-8
 
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
+from google.cloud import firestore
+import google.cloud.exceptions
 import datetime
 
 
-def incluirTemperatura(temperatura):
-    cred = credentials.Certificate(
-        'termpi-firebase-adminsdk-mfrvk-b95cdce7ef.json')
-    firebase_admin.initialize_app(cred)
+def conectarFirebase():
+    from google.cloud import firestore
+    db = firestore.Client()
+    return db
 
-    db = firestore.client()
+
+def incluirTemperatura(temperatura):
+    db = conectarFirebase()
     now = datetime.datetime.now()
 
     data = {
