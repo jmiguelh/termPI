@@ -41,3 +41,13 @@ def buscarTemperaturaAtual():
     results = query.get()
     
     return results
+
+def buscarUltimasTemperaturas(quantidade):
+    db = conectarFirebase()
+  
+    temperaturas = db.collection(u'temp')
+    query = temperaturas.order_by(
+        u'datahora', direction=firestore.Query.DESCENDING).limit(quantidade)
+    results = query.get()
+    
+    return results

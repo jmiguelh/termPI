@@ -1,10 +1,10 @@
 # coding: utf-8
 
-from firebase import buscarTemperaturaAtual
+from firebase import buscarUltimasTemperaturas
 
 
 def main():
-    resposta = buscarTemperaturaAtual()
+    resposta = buscarUltimasTemperaturas(10)
     for post in resposta:
         # print(u'{} => {}'.format(post.id, post.to_dict()))
         temp = post.to_dict()
