@@ -127,3 +127,4 @@ dmypy.json
 # VSCode
 .vscode
 termpi-firebase-adminsdk-mfrvk-b95cdce7ef.json
+XDG_CACHE_HOME/

@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 def main():
-    # data = datetime(2019, 5, 29)
+    #data = datetime(2020, 8, 24)
     resposta = buscarTemperaturasDoDia()
     #resposta = buscarUltimasTemperaturas(12)
     print(resposta)
